@@ -1,0 +1,26 @@
+.reveal,
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  color: #1a1a1a;
+
+}
+
+.backgrounds .slide-background {
+  background-color: #ffffff !important;
+  transition: none !important;
+}
+
+.backgrounds .slide-background-content {
+  background-size: 100px;
+  background-position: bottom left;
+  width: 100px;
+  height: 100px;
+  background-size: contain !important;
+  bottom: 14px;
+  left: 14px;
+  background-image: url('https://i.imgur.com/FemNMGz.jpg');
+}
