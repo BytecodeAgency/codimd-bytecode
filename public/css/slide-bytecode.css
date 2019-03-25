@@ -3,10 +3,16 @@
 .reveal h2,
 .reveal h3,
 .reveal h4,
-.reveal h5,
-.reveal h6 {
+.reveal h5 {
+  /* TODO: Add dash styling on headings, add padding on text left */
   color: #1a1a1a;
+}
 
+/* TODO: H6 will be green (like date on proposal) */
+.reveal h6 {}
+
+.reveal .slides {
+  text-align: left !important;
 }
 
 .backgrounds .slide-background {
@@ -14,7 +20,7 @@
   transition: none !important;
 }
 
-.backgrounds .slide-background-content {
+.backgrounds .slide-background:not(:first-child) .slide-background-content {
   background-size: 100px;
   background-position: bottom left;
   width: 100px;
@@ -24,3 +30,17 @@
   left: 14px;
   background-image: url('https://i.imgur.com/FemNMGz.jpg');
 }
+
+/* TODO: Slide animations? */
+
+/* TODO: Improve + add logo top left on first slide*/
+/* First slide */
+.backgrounds .slide-background:first-child {
+  background-color: #1a1a1a !important;
+}
+
+.reveal .slides section:first-child,
+.reveal .slides section:first-child > div > * {
+  color: #ffffff !important;
+}
+
