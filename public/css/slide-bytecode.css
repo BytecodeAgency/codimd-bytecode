@@ -33,8 +33,14 @@
 }
 
 .reveal .slides {
-  padding-left: 40px;
+  padding: 40px 100px;
   text-align: left !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  transform: none !important;
+  width: 100% !important;
 }
 
 .backgrounds .slide-background {
@@ -49,7 +55,7 @@
   height: 100px;
   background-size: contain !important;
   bottom: 14px;
-  left: 14px;
+  left: 45px;
   background-image: url('https://bytecode.nl/cdn/icon-black.png');
 }
 
@@ -74,7 +80,7 @@
   width: 240px;
   height: 100px;
   background-size: contain !important;
-  top: 14px;
-  left: 14px;
+  top: 35px;
+  left: 70px;
   background-image: url('https://bytecode.nl/cdn/logo-white.png');
 }
