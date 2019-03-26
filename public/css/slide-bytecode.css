@@ -50,7 +50,7 @@
   background-size: contain !important;
   bottom: 14px;
   left: 14px;
-  background-image: url('https://i.imgur.com/FemNMGz.jpg');
+  background-image: url('https://bytecode.nl/cdn/icon-black.png');
 }
 
 /* TODO: Slide animations? */
@@ -69,12 +69,12 @@
 }
 
 .backgrounds .slide-background:first-child .slide-background-content {
-  background-size: 100px;
+  background-size: 240px;
   background-position: top left;
-  width: 100px;
+  width: 240px;
   height: 100px;
   background-size: contain !important;
   top: 14px;
   left: 14px;
-  background-image: url('https://i.imgur.com/FemNMGz.jpg');
+  background-image: url('https://bytecode.nl/cdn/logo-white.png');
 }
