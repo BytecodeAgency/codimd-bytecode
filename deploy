@@ -1,17 +1,17 @@
 #!/bin/sh
 
-echo -e '\n***** Fetching new version from GitHub *****\n\n'
+echo '\n***** Fetching new version from GitHub *****\n\n'
 git fetch
 git pull
 
-echo -e '\n***** Installing dependencies *****\n\n'
+echo '\n***** Installing dependencies *****\n\n'
 yarn
 
-echo -e '\n***** Building front-end *****\n\n'
+echo '\n***** Building front-end *****\n\n'
 yarn run build
 
-echo -e '\n***** Migrating Database *****\n\n'
+echo '\n***** Migrating Database *****\n\n'
 npx sequelize db:migrate
 
-echo -e '\n***** Restarting PM2 *****\n\n'
+echo '\n***** Restarting PM2 *****\n\n'
 pm2 restart codimd-bytecode
