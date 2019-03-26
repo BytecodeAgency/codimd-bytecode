@@ -25,7 +25,7 @@ CodiMD, the free software version of HackMD, with edits for Bytecode Digital Age
 6. Modify the file named `.sequelizerc`, change the value of the variable `url` with your db connection string
    For example: `postgres://username:password@localhost:5432/codimd`
 7. Run `node_modules/.bin/sequelize db:migrate`, this step will migrate your db to the latest schema
-8. Run the server with PM2 (`pm2 start app.js --name codimd-bytecode`)
+8. Run the server with PM2 (`NODE_ENV=production CMD_PROTOCOL_USESSL=true pm2 start app.js --name codimd-bytecode`)
 9. For deploying a new version if you are using PM2, you can run `./deploy`
 
 ## Kubernetes
