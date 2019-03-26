@@ -7,9 +7,6 @@ git pull
 echo -e '\n***** Installing dependencies *****\n\n'
 yarn
 
-echo -e '\n***** Building front-end *****\n\n'
-yarn run build
-
 echo -e '\n***** Migrating Database *****\n\n'
 npx sequelize db:migrate
 
@@ -17,3 +14,5 @@ echo -e '\n***** Restarting PM2 *****\n\n'
 pm2 restart codimd-bytecode
 
 echo -e '\n***** Deployment done *****\n\n'
+
+echo -e '\n***** For building the front-end, run `yarn run build` *****\n\n'
