@@ -1,63 +1,7 @@
-CodiMD
+CodiMD - Bytecode
 ===
 
-[![#CodiMD on matrix.org][matrix.org-image]][matrix.org-url]
-[![build status][travis-image]][travis-url]
-[![version][github-version-badge]][github-release-page]
-[![POEditor][poeditor-image]][poeditor-url]
-
-CodiMD lets you create real-time collaborative markdown notes on all platforms.
-Inspired by Hackpad, with more focus on speed and flexibility, and build from [HackMD](https://hackmd.io) source code.
-Feel free to contribute.
-
-Thanks for using! :smile:
-
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-# Table of Contents
-
-- [HackMD CE became CodiMD](#hackmd-ce-became-codimd)
-- [Browsers Requirement](#browsers-requirement)
-- [Installation](#installation)
-  - [Getting started (Native install)](#getting-started-native-install)
-    - [Prerequisite](#prerequisite)
-    - [Instructions](#instructions)
-  - [Heroku Deployment](#heroku-deployment)
-  - [Kubernetes](#kubernetes)
-  - [CodiMD by docker container](#codimd-by-docker-container)
-  - [Cloudron](#cloudron)
-- [Upgrade](#upgrade)
-  - [Native setup](#native-setup)
-- [Configuration](#configuration)
-  - [Environment variables (will overwrite other server configs)](#environment-variables-will-overwrite-other-server-configs)
-  - [Application settings `config.json`](#application-settings-configjson)
-  - [Third-party integration API key settings](#third-party-integration-api-key-settings)
-  - [Third-party integration OAuth callback URLs](#third-party-integration-oauth-callback-urls)
-- [Developer Notes](#developer-notes)
-  - [Structure](#structure)
-  - [Operational Transformation](#operational-transformation)
-- [License](#license)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-# HackMD CE became CodiMD
-
-CodiMD was recently renamed from its former name was HackMD. CodiMD is the free software version of HackMD. It was the original Version of HackMD. The HackMD team initiated CodiMD and provided a solid code base. Due to the need of paying bills, A fork was created and called HackMD EE, which is a SaaS (Software as a Service) product available at [hackmd.io](https://hackmd.io).
-
-We decided to change the name to break the confusion between HackMD and CodiMD, formally known as HackMD CE, as it never was an open core project.
-
-Just to more confusion: We are still friends with HackMD :heart:
-
-*For the whole renaming story, see the [related issue](https://github.com/hackmdio/hackmd/issues/720)*
-
-# Browsers Requirement
-
-- ![Chrome](http://browserbadge.com/chrome/47/18px) Chrome >= 47, Chrome for Android >= 47
-- ![Safari](http://browserbadge.com/safari/9/18px) Safari >= 9, iOS Safari >= 8.4
-- ![Firefox](http://browserbadge.com/firefox/44/18px) Firefox >= 44
-- ![IE](http://browserbadge.com/ie/9/18px) IE >= 9, Edge >= 12
-- ![Opera](http://browserbadge.com/opera/34/18px) Opera >= 34, Opera Mini not supported
-- Android Browser >= 4.4
+CodiMD, the free software version of HackMD, with edits for Bytecode Digital Agency.
 
 # Installation
 
@@ -81,17 +25,8 @@ Just to more confusion: We are still friends with HackMD :heart:
 6. Modify the file named `.sequelizerc`, change the value of the variable `url` with your db connection string
    For example: `postgres://username:password@localhost:5432/codimd`
 7. Run `node_modules/.bin/sequelize db:migrate`, this step will migrate your db to the latest schema
-8. Run the server as you like (node, forever, pm2)
-
-To stay up to date with your installation it's recommended to join our [Matrix channel][matrix.org-url] or subscribe to the [release feed][github-release-feed].
-
-## Heroku Deployment
-
-You can quickly setup a sample Heroku CodiMD application by clicking the button below.
-
-[![Deploy on Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/hackmdio/codimd/tree/master)
-
-If you deploy it without the button, keep in mind to use the right buildpacks. For details check `app.json`.
+8. Run the server with PM2 (`pm2 start app.js --name codimd-bytecode`)
+9. For deploying a new version if you are using PM2, you can run `./deploy`
 
 ## Kubernetes
 
@@ -99,67 +34,9 @@ To install use `helm install stable/hackmd`.
 
 For all further details, please check out the offical CodiMD  [K8s helm chart](https://github.com/kubernetes/charts/tree/master/stable/hackmd).
 
-## CodiMD by docker container
-[![Try in PWD](https://cdn.rawgit.com/play-with-docker/stacks/cff22438/assets/images/button.png)](http://play-with-docker.com?stack=https://github.com/hackmdio/codimd-container/raw/master/docker-compose.yml&stack_name=codimd)
-
-
-**Debian-based version:**
-
-[![latest](https://images.microbadger.com/badges/version/hackmdio/hackmd:latest.svg)](https://microbadger.com/images/hackmdio/hackmd "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/hackmdio/hackmd:latest.svg)](https://microbadger.com/images/hackmdio/hackmd "Get your own image badge on microbadger.com")
-
-
-**Alpine-based version:**
-
-[![alpine](https://images.microbadger.com/badges/version/hackmdio/hackmd:alpine.svg)](https://microbadger.com/images/hackmdio/hackmd:alpine "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/hackmdio/hackmd:alpine.svg)](https://microbadger.com/images/hackmdio/hackmd:alpine "Get your own image badge on microbadger.com")
-
-The easiest way to setup CodiMD using docker are using the following three commands:
-
-```console
-git clone https://github.com/hackmdio/codimd-container.git
-cd codimd-container
-docker-compose up
-```
-Read more about it in the [container repository…](https://github.com/hackmdio/codimd-container)
-
-## Cloudron
-
-Install CodiMD on [Cloudron](https://cloudron.io):
-
-[![Install](https://cloudron.io/img/button.svg)](https://cloudron.io/button.html?app=io.hackmd.cloudronapp)
-
 # Upgrade
 
-## Native setup
-
-If you are upgrading CodiMD from an older version, follow these steps:
-
-1. Fully stop your old server first (important)
-2. `git pull` or do whatever that updates the files
-3. `npm install` to update dependencies
-4. Build front-end bundle by `npm run build` (use `npm run dev` if you are in development)
-5. Modify the file named `.sequelizerc`, change the value of the variable `url` with your db connection string
-   For example: `postgres://username:password@localhost:5432/codimd`
-6. Run `node_modules/.bin/sequelize db:migrate`, this step will migrate your db to the latest schema
-7. Start your whole new server!
-
-To stay up to date with your installation it's recommended to join our [Matrix channel][matrix.org-url] or subscribe to the [release feed][github-release-feed].
-
-* **migrate-to-1.1.0**
-
-We deprecated the older lower case config style and moved on to camel case style. Please have a look at the current `config.json.example` and check the warnings on startup.
-
-*Notice: This is not a breaking change right now but in the future*
-
-* [**migration-to-0.5.0**](https://github.com/hackmdio/migration-to-0.5.0)
-
-We don't use LZString to compress socket.io data and DB data after version 0.5.0.
-Please run the migration tool if you're upgrading from the old version.
-
-* [**migration-to-0.4.0**](https://github.com/hackmdio/migration-to-0.4.0)
-
-We've dropped MongoDB after version 0.4.0.
-So here is the migration tool for you to transfer the old DB data to the new DB.
-This tool is also used for official service.
+For instructions on upgrading, check the original CodiMD documentation on GitHub.
 
 # Configuration
 
