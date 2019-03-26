@@ -33,7 +33,7 @@
 }
 
 .reveal .slides {
-  margin-left: 40px;
+  padding-left: 40px;
   text-align: left !important;
 }
 
@@ -55,7 +55,6 @@
 
 /* TODO: Slide animations? */
 
-/* First slide */
 .backgrounds .slide-background:first-child {
   background-color: #1a1a1a !important;
 }
