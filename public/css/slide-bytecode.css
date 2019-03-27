@@ -42,6 +42,9 @@
   transform: none !important;
   width: 100% !important;
 }
+.reveal .slides > section{
+  width: unset;
+}
 
 .reveal table {
   margin: unset;
