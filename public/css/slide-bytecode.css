@@ -47,6 +47,10 @@
   margin: unset;
 }
 
+.reveal blockquote {
+  margin: 20px 0 20px 40px;
+}
+
 .backgrounds .slide-background {
   background-color: #ffffff !important;
   transition: none !important;
