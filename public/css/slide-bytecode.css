@@ -76,6 +76,10 @@
   background-color: #1a1a1a !important;
 }
 
+.reveal .slides section:first-child {
+  top: 250px !important;
+}
+
 .reveal .slides section:first-child,
 .reveal .slides section:first-child > div > * {
   color: #ffffff !important;
