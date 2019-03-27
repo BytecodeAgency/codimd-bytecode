@@ -43,6 +43,10 @@
   width: 100% !important;
 }
 
+.reveal table {
+  margin: unset;
+}
+
 .backgrounds .slide-background {
   background-color: #ffffff !important;
   transition: none !important;
