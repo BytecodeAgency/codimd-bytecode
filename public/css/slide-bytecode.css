@@ -99,3 +99,7 @@
   left: 70px; /* TODO: Improve responsiveness */
   background-image: url('https://bytecode.nl/cdn/logo-white.png');
 }
+
+/* Hide scrollbar in chrome */
+html { overflow: scroll; overflow-x: hidden; }
+::-webkit-scrollbar { width: 0px; }
